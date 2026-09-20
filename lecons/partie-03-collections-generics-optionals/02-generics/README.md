@@ -1,14 +1,14 @@
 # Generics
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 02 de la partie 3 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (pourquoi les generics, classe générique `Boite<T>`, diamant `<>`, méthode générique, bornes `extends`, wildcards et règle **PECS**, effacement de type avec les vrais messages `javac`, generics de Spring, vocabulaire, exemples exécutés, bonnes pratiques, 7 pièges, checklist)
+- `02-exercice.md` — l'exercice « Des outils génériques pour SignalCUA » (`Boite<T>` complétée, `Paire<K,V>.inverser()`, `premier`/`maximum`/`copierTout`/`compter`, `Historique<T>`, bonus : reproduire les erreurs de compilation)
+- `03-correction.md` — la correction détaillée + sortie réellement exécutée (Java 21) + les messages d'erreur `javac` réels + erreurs fréquentes + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Outillage générique réutilisable pour **SignalCUA** (`Historique<T>`, `Paire<K, V>`) — voir `lecons/fil-rouge-signalcua.md`.
+

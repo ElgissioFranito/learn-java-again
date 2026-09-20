@@ -1,14 +1,14 @@
 # Date and time api
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 04 de la partie 3 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (pourquoi quitter `Date`/`Calendar`, les 5 types de `java.time`, immuabilité, `Duration` vs `Period` (démonstration au changement d'heure), `ChronoUnit`, `DateTimeFormatter`, `Clock` injecté, échéance calculée vs stockée, vocabulaire, exemples exécutés, bonnes pratiques, 7 pièges, checklist)
+- `02-exercice.md` — l'exercice « Le SLA des réclamations » (`Priorite.delaiMax()`, `dateDeclaration`, `dateEcheance()` calculée, `ServiceDelais` avec `Clock`, horloge figée, `Period`/`Duration`, formatage, bonus fuseaux et heure d'été)
+- `03-correction.md` — la correction détaillée + sortie réellement exécutée (Java 21) + erreurs fréquentes + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+SignalCUA mesure désormais ses engagements : échéance calculée depuis la priorité, retards détectés avec une horloge **injectée** (`Clock`) — voir `lecons/fil-rouge-signalcua.md`.
+

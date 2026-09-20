@@ -79,7 +79,8 @@ public void traiter() {
 
 **Pourquoi `@Override` est vital** : sans elle, une faute de frappe (`traiter()` devenu `treater()`) ne déclenche **aucune erreur** — Java croit que vous créez une nouvelle méthode, et la vraie n'est jamais redéfinie. Bug silencieux. Avec `@Override`, le compilateur vérifie qu'une méthode de la mère existe bien avec cette signature et vous crie dessus si non. Un contrôle gratuit, en plus, du compilateur — prenez le réflexe.
 
-> 📖 **Vocabulaire** : **redéfinition** (*overriding*) = réécrire dans la fille une méthode héritée de la mère. **Surcharge** (*overloading*) = plusieurs méthodes de même nom avec des paramètres différents (rappel partie 1). 
+> 📖 **Vocabulaire** : **redéfinition** (*overriding*) = réécrire dans la fille une méthode héritée de la mère. **Surcharge** (*overloading*) = plusieurs méthodes de même nom avec des paramètres différents (rappel partie 1).
+ 
 > **Annotation** = mot commençant par `@` que le compilateur lit pour vérifier quelque chose (ici, `@Override`).
 
 ### 2.4 Le polymorphisme : une variable, plusieurs visages

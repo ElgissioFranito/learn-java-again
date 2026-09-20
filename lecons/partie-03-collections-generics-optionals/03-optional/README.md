@@ -1,14 +1,14 @@
 # Optional
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 03 de la partie 3 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (le problème de `null`, créer/lire/transformer un `Optional` : `of`/`ofNullable`/`empty`, `orElse`/`orElseGet`/`orElseThrow`, `ifPresent(OrElse)`, `map`/`filter`/`flatMap`, preuve par l'exécution de l'évaluation avide de `orElse`, motif `findById` de Spring, les 4 interdits, vocabulaire, exemples exécutés, bonnes pratiques, 8 pièges, checklist)
+- `02-exercice.md` — l'exercice « Le registre passe à `Optional` » (`findById` → `Optional<Reclamation>`, `premiereUrgente`, `premiereDuQuartier`, `ServiceReclamations` avec `orElseThrow`, manipulation sans `if`, bonus : provoquer les deux erreurs)
+- `03-correction.md` — la correction détaillée + sortie réellement exécutée (Java 21) + erreurs fréquentes + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Le registre SignalCUA ne renvoie plus `null` : l'absence est dans le type (`Optional<Reclamation> findById`) — voir `lecons/fil-rouge-signalcua.md`.
+

@@ -1,0 +1,21 @@
+1) AVANT : NullPointerException (le null vient du findById, l'erreur explose ici)
+2) of -> present=true | ofNullable(null) -> present=false | empty -> present=false
+   PIEGE : Optional.of(null) leve immediatement un NullPointerException
+3) isPresent + get -> Nid de poule
+   orElse -> aucune reclamation
+4) map sur #2 -> Lampadaire éteint
+   map sur #99 -> aucune
+5) #2 est URGENTE ? true
+   #1 est URGENTE ? false
+      >> calcul de la description par defaut (elle a bien ete appelee)
+6) orElse(...)    -> Nid de poule
+   orElseGet(...) -> Nid de poule  (aucun calcul ci-dessus : la methode n'a pas ete appelee)
+7) orElseThrow(() -> ...) -> IllegalStateException : Reclamation 99 introuvable
+   orElseThrow() sans argument -> NoSuchElementException (message technique, sans explication metier)
+8) ifPresent -> #2 NOUVELLE
+8) ifPresentOrElse -> absent : on journalise une alerte
+9) premiereUrgente -> Lampadaire éteint
+   compterResolues() -> 0
+10) map     -> type Optional<Optional<Reclamation>>, present=true
+    flatMap -> Lampadaire éteint
+11) liste vide -> isEmpty()=true : inutile d'emballer ce cas dans un Optional
