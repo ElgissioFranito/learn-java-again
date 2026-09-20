@@ -1,14 +1,14 @@
 # Interfaces et classes abstraites
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 03 de la partie 2 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (interface = contrat, `default`/`static`, classe abstraite, tableau de décision, composition, vocabulaire, exemples, bonnes pratiques, pièges, checklist)
+- `02-exercice.md` — l'exercice « Le contrat `Traitable` » (boucle polymorphe ouverte + bonus de décision)
+- `03-correction.md` — la correction détaillée + validation du code exécuté + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Extraction du contrat `Traitable` de l'Étape 2 du projet **SignalCUA** : la boucle polymorphe s'ouvre hors-famille (`Agent` y entre) — voir `lecons/fil-rouge-signalcua.md`.
+

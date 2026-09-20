@@ -1,14 +1,14 @@
 # Heritage et polymorphisme
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 02 de la partie 2 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
+- `01-lecon.md` — la leçon complète (objectifs, pont, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
+- `02-exercice.md` — l'exercice pratique « La famille des réclamations » (hiérarchie SignalCUA + bonus `super.traiter()`)
 - `03-correction.md` — la correction détaillée + checklist de validation + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Cette leçon construit la hiérarchie de types de l'Étape 2 du projet **SignalCUA** (`Reclamation` → `ReclamationVoirie`/`Proprete`/`Eclairage`) — voir `lecons/fil-rouge-signalcua.md`.
+

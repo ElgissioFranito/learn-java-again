@@ -1,14 +1,14 @@
 # Enumerations enum
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 05 de la partie 2 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (`enum` simple, champs/constructeur/méthodes, `values()`/`valueOf()`/`name()`/`ordinal()`, switch exhaustif, choix enum vs sealed+records, vocabulaire, exemples, bonnes pratiques, pièges, checklist)
+- `02-exercice.md` — l'exercice « Le fil rouge passe au vrai `enum` » (StatutReclamation + Priorite + bonus ordinal)
+- `03-correction.md` — la correction détaillée + validation du code exécuté + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Finalisation de l'Étape 2 du projet **SignalCUA** : le statut `String` devient un vrai `enum StatutReclamation` — voir `lecons/fil-rouge-signalcua.md`.
+

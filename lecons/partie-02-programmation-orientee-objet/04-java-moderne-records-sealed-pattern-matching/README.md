@@ -1,14 +1,14 @@
 # Java moderne records sealed pattern matching
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 04 de la partie 2 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (record + constructeur compact, sealed/permits, pattern matching exhaustif, le cas JPA interdit, vocabulaire, exemples, bonnes pratiques, pièges, checklist)
+- `02-exercice.md` — l'exercice « SignalCUA version moderne » (famille scellée des types de réclamations + bonus du filet du compilateur)
+- `03-correction.md` — la correction détaillée + validation du code exécuté (y compris l'erreur attendue du bonus) + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Bonus moderne de l'Étape 2 du projet **SignalCUA** : `Reclamation` en record, états en `sealed interface`, affichage par pattern matching — voir `lecons/fil-rouge-signalcua.md`.
+
