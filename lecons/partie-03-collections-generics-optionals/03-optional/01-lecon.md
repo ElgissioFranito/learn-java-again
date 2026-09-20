@@ -625,12 +625,3 @@ Avant de passer à la leçon 04, vérifiez que vous savez faire **chacun** de ce
 ---
 
 ➡️ **Prochaine étape** : SignalCUA sait maintenant dire « cette réclamation n'existe pas » **sans mentir**. Mais une réclamation porte une notion de temps : elle est déclarée **à une date**, et doit être traitée **dans un délai** (4 h pour une urgence, 48 h pour une normale — souvenez-vous du `Priorite.getDelaiHeuresMax()` de la partie 2). Or jusqu'ici, aucune de nos classes ne manipule vraiment le temps… alors que Java traîne depuis 1995 une API de dates notoirement piégeuse (`Date`, `Calendar`). La **leçon 04 — Date and Time API** installe `java.time` et fait de SignalCUA une application qui **mesure ses délais**.
-
-
-
-
-
-
-
-
-

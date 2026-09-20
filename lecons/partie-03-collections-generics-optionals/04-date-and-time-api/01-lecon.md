@@ -762,14 +762,3 @@ Avant de clore la partie 3, vérifiez que vous savez faire **chacun** de ces poi
 ---
 
 ➡️ **Prochaine étape** : la partie 3 est close — vos données sont **rangées** (`List`, `Set`, `Map`, `Queue`), **typées** (generics), vos absences **explicites** (`Optional`) et vos délais **mesurés** (`java.time`). SignalCUA sait désormais *quand* il ne respecte pas ses engagements… mais il ne sait pas **quoi faire** quand quelque chose se passe mal : une description vide, un identifiant inconnu, un texte de date illisible. Jusqu'ici, nous avons levé des `IllegalArgumentException` et des `IllegalStateException`, en les attrapant avec des `try/catch` — sans jamais nous demander *qui* doit les traiter, *comment* les structurer, ni ce qu'il advient d'une exception non attrapée. La **partie 4 — Gestion des exceptions** transforme ce bricolage en stratégie : hiérarchie d'exceptions métier, `try/catch/finally`, `try-with-resources`, exceptions personnalisées et bonnes pratiques de propagation.
-
-
-
-
-
-
-
-
-
-
-

@@ -11,4 +11,3 @@
 ## 🔗 Fil rouge
 
 Le registre SignalCUA ne renvoie plus `null` : l'absence est dans le type (`Optional<Reclamation> findById`) — voir `lecons/fil-rouge-signalcua.md`.
-

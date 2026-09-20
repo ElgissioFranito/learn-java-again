@@ -31,4 +31,3 @@ La classe `Reclamation` est reconstruite : champs `private`/`final`, transitions
 4. **Le temps entre dans le modèle** (leçon 04) : `Reclamation.dateDeclaration` (`LocalDateTime`), échéance **calculée** `dateDeclaration.plus(priorite.delaiMax())` (`Duration`), `ServiceDelais.estEnRetard`/`ecart`/`resumeSla` avec une **horloge injectée** (`Clock`) pour des tests déterministes (partie 9).
 
 À retenir pour la suite : ce registre deviendra le dépôt de données de la partie 8 (où il prendra le nom `ReclamationRepository`), et le service de SLA deviendra un `@Service` de la partie 7.
-

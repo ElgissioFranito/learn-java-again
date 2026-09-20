@@ -61,4 +61,3 @@ Chaque leçon **s'appuie sur la précédente** : les collections (01) sont toute
 - un service de **SLA** (leçon 04) : `Reclamation.dateDeclaration`, échéance **calculée** (`dateDeclaration.plus(priorite.delaiMax())`), `ServiceDelais.estEnRetard`/`ecart`/`resumeSla` avec **horloge injectée** (`Clock`) pour un code testable.
 
 ➡️ **Prochaine étape** : la partie 4 — **Gestion des exceptions**. Jusqu'ici, SignalCUA levait des exceptions standard (`IllegalArgumentException`, `IllegalStateException`) et les attrapait en cas par cas. La partie 4 transforme ce réflexe en **stratégie** : hiérarchie d'exceptions métier, `try/catch/finally`, `try-with-resources`, et règles de propagation — le socle dont dépendent vos futures API REST (partie 7).
-

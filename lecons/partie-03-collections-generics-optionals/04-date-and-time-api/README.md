@@ -11,4 +11,3 @@
 ## 🔗 Fil rouge
 
 SignalCUA mesure désormais ses engagements : échéance calculée depuis la priorité, retards détectés avec une horloge **injectée** (`Clock`) — voir `lecons/fil-rouge-signalcua.md`.
-

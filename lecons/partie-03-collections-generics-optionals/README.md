@@ -17,4 +17,3 @@
 ## 🔴 Fil rouge
 
 Étape 3 de SignalCUA (parties 1-5, phase console) : le tableau de taille fixe devient un `RegistreReclamations` multi-structures, typé (generics), honnête sur l'absence (`Optional`), et le projet apprend à mesurer ses délais (`java.time` + `Clock`). Voir `lecons/fil-rouge-signalcua.md`.
-

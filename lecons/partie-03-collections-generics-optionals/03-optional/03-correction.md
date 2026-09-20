@@ -290,7 +290,3 @@ Reprenez chaque point **sur votre code** :
 5. **Retenez le couple `map` + `orElse`** comme le « bonjour le monde » d'`Optional`. Si vous ne devez retenir qu'une ligne de cette leçon, c'est celle-ci : `registre.findById(id).map(r -> r.getDescription()).orElse("inconnue")`.
 
 ➡️ **Suite de votre parcours** : votre registre sait maintenant dire « je n'ai pas trouvé » sans mentir. La **leçon 04 — Date and Time API** ajoute la dimension manquante à SignalCUA : **quand** la réclamation est arrivée, **quand** elle doit être traitée, et **comment** mesurer un retard — avec `java.time`, la seule API de dates à utiliser aujourd'hui.
-
-
-
-

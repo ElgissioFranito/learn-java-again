@@ -376,7 +376,3 @@ Reprenez chaque point **sur votre code** :
 5. **Notez la question « fait historique ou règle actuelle ? »** dans votre carnet : elle reviendra pour les prix, les taux, les barèmes… Tout ce qui doit rester stable dans le temps se **stocke**, tout ce qui se déduit se **calcule**.
 
 ➡️ **Fin de la partie 3** : SignalCUA dispose maintenant d'un registre **typé** (generics), **honnête sur l'absence** (`Optional`), ses données sont **rangées** en collections et il **mesure ses engagements** (`java.time`). Il reste à structurer la façon dont il **échoue** : la partie 4 (Gestion des exceptions) posera la hiérarchie d'exceptions métier, les `try/catch/finally`, le `try-with-resources` et les règles de propagation — en réutilisant tout ce que vous venez de construire.
-
-
-
-
