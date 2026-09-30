@@ -1,6 +1,6 @@
-# Try with resources
+# Exceptions checked vs unchecked et try-with-resources
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
+> Leçon prévue — sous-chapitre 4.1 « Checked vs unchecked, et try-with-resources » de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
 > Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
 
 ## Fichiers attendus
@@ -11,4 +11,4 @@
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+Cette leçon contribue à l'Étape 4 du projet **SignalCUA** (robustifier SignalCUA) — voir `lecons/fil-rouge-signalcua.md`.

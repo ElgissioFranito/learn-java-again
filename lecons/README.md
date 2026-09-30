@@ -19,18 +19,18 @@
 |---|---------|-------|--------|
 | 1 | `partie-01-bases-du-langage` | Syntaxe, types, variables, structures de contrôle | 7 |
 | 2 | `partie-02-programmation-orientee-objet` | Encapsulation, héritage, interfaces, records, enum | 5 |
-| 3 | `partie-03-collections-generics-optionals` | Collections, generics, Optional, java.time | 4 |
-| 4 | `partie-04-exception-handling` | Exceptions checked/unchecked, try-with-resources | 3 |
+| 3 | `partie-03-collections-generics-optionals` | Collections, Generics, Optional, Dates (java.time) | 4 |
+| 4 | `partie-04-exception-handling` | Exceptions checked/unchecked, try-with-resources, exceptions métier | 2 |
 | 5 | `partie-05-programmation-fonctionnelle-et-streams` | Lambdas, Stream API, Collectors | 3 |
-| 6 | `partie-06-build-tools-maven-gradle` | Maven, aperçu Gradle | 2 |
-| 7 | `partie-07-spring-boot-et-injection-de-dependances` | IoC/DI, contrôleurs REST, services, configuration | 4 |
-| 8 | `partie-08-acces-aux-donnees-spring-data-jpa` | JDBC, JPA/Hibernate, repositories, Flyway | 5 |
+| 6 | `partie-06-build-tools-maven-gradle` | Maven (installation, wrapper mvnw, Initializr), aperçu Gradle | 2 |
+| 7 | `partie-07-spring-boot-et-injection-de-dependances` | Pourquoi un framework, premier projet Spring Boot, IoC/DI, stéréotypes, contrôleurs REST, validation, erreurs, services, DTOs, configuration, Actuator, CORS | 12 |
+| 8 | `partie-08-acces-aux-donnees-spring-data-jpa` | JDBC, entités JPA, repositories, relations et N+1, Flyway, transactions, projections DTO | 7 |
 | 9 | `partie-09-tests-junit-mockito` | JUnit, Mockito, Testcontainers | 3 |
-| 10 | `partie-10-concurrence` | Threads, @Async, Virtual Threads | 3 |
-| 11 | `partie-11-logging` | SLF4J/Logback, logging structuré | 2 |
+| 10 | `partie-10-concurrence` | Threads, @Async/@Scheduled, Virtual Threads | 3 |
+| 11 | `partie-11-logging` | SLF4J/Logback, logging structuré et corrélation | 2 |
 | 12 | `partie-12-securite` | Spring Security, JWT/OAuth2 | 2 |
 | 13 | `partie-13-monde-au-dela-de-la-roadmap` | Carte des sujets à connaître de nom | 1 (synthèse) |
-| 14 | `partie-14-pont-angular-springboot` | Récapitulatif Angular ↔ Spring Boot | 1 (synthèse) |
+| 14 | `partie-14-pont-angular-springboot` | Synthèse des contrats Angular ↔ Spring Boot | 1 (synthèse) |
 
 ## 🔴 Les 4 phases du fil rouge SignalCUA
 

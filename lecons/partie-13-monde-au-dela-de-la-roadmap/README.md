@@ -4,7 +4,7 @@
 
 ## Leçons
 
-- (synthèse : voir le fichier de cette partie)
+- [01-carte-des-sujets-a-connaitre](./01-carte-des-sujets-a-connaitre/README.md) — La carte des sujets à connaître de nom (synthèse)
 
 ## 🔴 Fil rouge
 

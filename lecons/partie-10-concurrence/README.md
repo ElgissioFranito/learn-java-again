@@ -4,9 +4,9 @@
 
 ## Leçons
 
-- [01-threads-et-executorservice](./01-threads-et-executorservice/README.md) — Threads et executorservice
-- [02-async](./02-async/README.md) — Async
-- [03-virtual-threads](./03-virtual-threads/README.md) — Virtual threads
+- [01-threads-et-executorservice](./01-threads-et-executorservice/README.md) — Threads et ExecutorService (10.1)
+- [02-async-et-scheduled](./02-async-et-scheduled/README.md) — @Async et @Scheduled (10.2)
+- [03-virtual-threads](./03-virtual-threads/README.md) — Virtual Threads (10.3)
 
 ## 🔴 Fil rouge
 

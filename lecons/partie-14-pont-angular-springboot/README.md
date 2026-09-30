@@ -4,7 +4,7 @@
 
 ## Leçons
 
-- (synthèse : voir le fichier de cette partie)
+- [01-pont-angular-springboot](./01-pont-angular-springboot/README.md) — Synthèse des contrats Angular ↔ Spring Boot (14.1 à 14.4)
 
 ## 🔴 Fil rouge
 

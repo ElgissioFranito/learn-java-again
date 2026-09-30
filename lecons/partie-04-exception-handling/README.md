@@ -4,9 +4,8 @@
 
 ## Leçons
 
-- [01-checked-vs-unchecked](./01-checked-vs-unchecked/README.md) — Checked vs unchecked
-- [02-try-with-resources](./02-try-with-resources/README.md) — Try with resources
-- [03-exceptions-metier-custom](./03-exceptions-metier-custom/README.md) — Exceptions metier custom
+- [01-checked-unchecked-et-try-with-resources](./01-checked-unchecked-et-try-with-resources/README.md) — Checked vs unchecked, et try-with-resources (4.1)
+- [02-exceptions-metier-custom](./02-exceptions-metier-custom/README.md) — Exceptions métier custom (4.2)
 
 ## 🔴 Fil rouge
 
