@@ -31,3 +31,10 @@ La classe `Reclamation` est reconstruite : champs `private`/`final`, transitions
 4. **Le temps entre dans le modèle** (leçon 04) : `Reclamation.dateDeclaration` (`LocalDateTime`), échéance **calculée** `dateDeclaration.plus(priorite.delaiMax())` (`Duration`), `ServiceDelais.estEnRetard`/`ecart`/`resumeSla` avec une **horloge injectée** (`Clock`) pour des tests déterministes (partie 9).
 
 À retenir pour la suite : ce registre deviendra le dépôt de données de la partie 8 (où il prendra le nom `ReclamationRepository`), et le service de SLA deviendra un `@Service` de la partie 7.
+
+## 📌 Étape 4 — Partie 4 : robustifier SignalCUA
+
+1. **Importer un fichier sans se planter** (leçon 01) : `importerDepuisFichier(String chemin)` lit un fichier texte en **`try-with-resources`** (la ressource est toujours fermée, même en cas d'erreur), ignore les lignes vides, et signale chaque **ligne mal formée** par une exception *unchecked* (`IllegalArgumentException`) **sans interrompre** l'import des lignes suivantes. Le fichier **absent** est une exception *checked* (`IOException` / `NoSuchFileException`) gérée explicitement.
+2. **Hiérarchie d'exceptions métier** (leçon 02) : racine `SignalcuaException extends RuntimeException`, avec `ReclamationNotFoundException` (porte l'`id`), `ReclamationInvalideException` et `TransitionStatutInterditeException`. La classe `Reclamation` **valide** ses données (id, description) et ses transitions de statut ; `findById()` **lève** au lieu de renvoyer `null` ; le service **propage** jusqu'à la frontière.
+
+À retenir pour la suite : ces exceptions métier deviendront, en partie 7, des réponses HTTP précises (`@ControllerAdvice` → 404, 400, 409), et en partie 9 des cas de tests (`assertThrows(...)`).

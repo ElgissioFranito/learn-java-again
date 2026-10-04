@@ -44,7 +44,7 @@
 - [x] Partie 1 — Bases du langage
 - [x] Partie 2 — POO
 - [x] Partie 3 — Collections, Generics, Optionals
-- [ ] Partie 4 — Exception Handling
+- [x] Partie 4 — Exception Handling
 - [ ] Partie 5 — Fonctionnel & Streams
 - [ ] Partie 6 — Maven / Gradle
 - [ ] Partie 7 — Spring Boot & DI

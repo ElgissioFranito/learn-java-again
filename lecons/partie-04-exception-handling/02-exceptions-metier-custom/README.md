@@ -1,14 +1,13 @@
-# Exceptions metier custom
+# Exceptions métier custom
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 02 de la partie 4 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (erreur technique vs métier, créer une exception `extends RuntimeException` avec message + contexte, hiérarchie avec racine `SignalcuaException`, *unchecked* pour le métier, chaînage de la cause, propagation jusqu'à la frontière, `Optional` vs exception, vocabulaire, exemples exécutés, bonnes pratiques 2025-2026, 7 pièges, checklist)
+- `02-exercice.md` — l'exercice « Robustifier SignalCUA » (fil rouge Étape 4 : `SignalcuaException` + 3 filles, `Reclamation` qui valide, `findById` qui lève, service qui propage, `main` qui capture par type et par famille, chaînage de cause)
+- `03-correction.md` — la correction détaillée + sortie réellement exécutée (Java 21) + erreurs fréquentes + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+SignalCUA dispose d'une **hiérarchie d'exceptions métier** : le registre **lève**, la `Reclamation` **valide** ses données et transitions, le service **propage** — voir `lecons/fil-rouge-signalcua.md` (Étape 4).
