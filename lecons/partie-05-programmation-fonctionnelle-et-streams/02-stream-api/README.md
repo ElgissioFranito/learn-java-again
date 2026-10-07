@@ -1,14 +1,13 @@
 # Stream api
 
-> Leçon prévue — sous-chapitre de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Leçon 02 de la partie 5 — ✅ **générée**.
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- `01-lecon.md` — la leçon complète (Stream vs collection, modèle source → intermédiaires → terminale, paresse + court-circuit, usage unique, catalogue `filter`/`map`/`flatMap`/`sorted`/`distinct`/`limit`/`skip`/`peek`, terminales `toList`/`count`/`reduce`/`findFirst`/`min`/`max`/`*Match`/`collect`, `reduce`, `stream` vs `parallelStream`, `IntStream` + `summaryStatistics`, vocabulaire, exemples, bonnes pratiques 2025-2026, 8 pièges, checklist)
+- `02-exercice.md` — l'exercice « Interroger SignalCUA en pipelines » (tableau de bord : requêtes triées, pagination `skip`/`limit`, DTO `record`, questions métier, agrégats numériques, preuves de paresse et d'usage unique)
+- `03-correction.md` — la correction détaillée + sortie réellement exécutée (Java 21) + erreurs fréquentes + checklist + conseils
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue au projet **SignalCUA** (voir `lecons/fil-rouge-signalcua.md`).
+SignalCUA s'interroge **en pipelines** : pilotage, pagination, questions métier et statistiques numériques — voir `lecons/fil-rouge-signalcua.md` (Étape 5, en construction).

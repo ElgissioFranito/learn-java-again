@@ -10,7 +10,7 @@
 ## Leçons
 
 - [01-checked-unchecked-et-try-with-resources](./01-checked-unchecked-et-try-with-resources/README.md) — Checked vs unchecked, try-with-resources ✅
-- [02-exceptions-métier-custom](./02-exceptions-métier-custom/README.md) — Exceptions métier custom ✅
+- [02-exceptions-metier-custom](./02-exceptions-metier-custom/README.md) — Exceptions métier custom ✅
 
 ## 🔴 Fil rouge
 

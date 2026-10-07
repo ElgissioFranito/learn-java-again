@@ -38,3 +38,12 @@ La classe `Reclamation` est reconstruite : champs `private`/`final`, transitions
 2. **Hiérarchie d'exceptions métier** (leçon 02) : racine `SignalcuaException extends RuntimeException`, avec `ReclamationNotFoundException` (porte l'`id`), `ReclamationInvalideException` et `TransitionStatutInterditeException`. La classe `Reclamation` **valide** ses données (id, description) et ses transitions de statut ; `findById()` **lève** au lieu de renvoyer `null` ; le service **propage** jusqu'à la frontière.
 
 À retenir pour la suite : ces exceptions métier deviendront, en partie 7, des réponses HTTP précises (`@ControllerAdvice` → 404, 400, 409), et en partie 9 des cas de tests (`assertThrows(...)`).
+
+## 📌 Étape 5 — Partie 5 : statistiques SignalCUA
+
+1. **Compter par statut** (leçon 03) : `toutes.stream().collect(groupingBy(Reclamation::getStatut, counting()))` → `{NOUVELLE=3, EN_COURS=2, RESOLUE=1}` (version stable avec `TreeMap::new`).
+2. **Quartiers avec au moins une `URGENTE`** (leçons 02-03) : `filter` (urgentes) + `map` (quartier) + `distinct` + `toList()` → `[Medina, Fann]`.
+3. **Doyenne et dernière par quartier** (leçon 03) : `groupingBy(getQuartier, minBy(comparing(getDateDeclaration)))` (doyenne) et `toMap(getQuartier, r -> r, fusion « la plus récente gagne »)` (dernière).
+4. **En bonus** : coupe urgent/non-urgent (`partitioningBy`), en-tête collé (`joining`), index par id (`toMap`).
+
+À retenir pour la suite : la partie 5 clôt la **phase console** — tout ce qui précède (représenter, échouer, traiter) reste valable, mais le code vit encore « à la main » dans un dossier. La partie 6 lui donne une structure Maven ; la partie 8 remplacera les listes par une base PostgreSQL, où `groupingBy` servira à mettre en forme les résultats des requêtes.
