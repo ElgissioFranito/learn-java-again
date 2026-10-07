@@ -754,7 +754,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.1-bis Premier projet Spring Boot : Initializr, `@SpringBootApplication`, `./mvnw spring-boot:run` (leçon-pont)
+### 7.2 Premier projet Spring Boot : Initializr, `@SpringBootApplication`, `./mvnw spring-boot:run` (leçon-pont)
 
 **Pourquoi cette leçon-pont entre le « pourquoi » (7.1) et le « comment » (7.2) ?** La partie 6 a montré Initializr sans démarrer Spring ; la partie 7.2 va expliquer l'injection sans avoir encore lancé l'application. Il manque une marche : créer le projet pour de vrai, le lancer, voir qu'il démarre — avant de théoriser. Sans elle, `@SpringBootApplication` tomberait du ciel en 7.2.
 
@@ -777,7 +777,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.2 IoC & Dependency Injection
+### 7.3 IoC & Dependency Injection
 
 **Essentiels**
 
@@ -806,7 +806,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.3 Les stéréotypes : @Component, @Service, @Repository, @Controller
+### 7.4 Les stéréotypes : @Component, @Service, @Repository, @Controller
 
 **Pourquoi une sous-partie dédiée, plutôt qu'une simple mention ?** Ces quatre annotations reviennent constamment dans tout code Spring Boot, et un débutant se demande souvent "quelle est la différence, techniquement elles font toutes la même chose ?" — méritant une clarification explicite pour éviter cet étonnement.
 
@@ -827,7 +827,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.4 Contrôleurs REST
+### 7.5 Contrôleurs REST
 
 **Pourquoi juste après les stéréotypes ?** Vous savez désormais qu'un `@RestController` est un `@Component` spécialisé pour "recevoir les requêtes" — voyons concrètement comment.
 
@@ -855,7 +855,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.5 Validation des entrées
+### 7.6 Validation des entrées
 
 **Pourquoi une sous-partie séparée, et pas fondue dans les contrôleurs ?** La validation est un sujet suffisamment important et distinct (elle a son propre écosystème d'annotations) pour mériter sa place propre, plutôt que d'être noyée dans la présentation générale des contrôleurs.
 
@@ -876,7 +876,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.6 Gestion centralisée des erreurs
+### 7.7 Gestion centralisée des erreurs
 
 **Pourquoi juste après la validation ?** La validation (7.5) est justement l'un des cas les plus fréquents où une exception doit être transformée en réponse HTTP compréhensible — ce mécanisme de transformation est donc la suite naturelle et indispensable de ce que vous venez de voir.
 
@@ -898,7 +898,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.7 Services & architecture en couches
+### 7.8 Services & architecture en couches
 
 **Pourquoi seulement maintenant, après les contrôleurs ?** Vous savez désormais ce qu'un contrôleur ne doit **pas** faire (7.4, le *Fat Controller*) — la question naturelle devient alors : où va vraiment la logique métier ? C'est le rôle de la couche service, présentée ici en réaction directe à ce que vous venez d'apprendre à éviter.
 
@@ -920,7 +920,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.8 DTOs et mapping Entity ↔ DTO
+### 7.9 DTOs et mapping Entity ↔ DTO
 
 **Pourquoi cette sous-partie distincte ?** Ce point a été mentionné plusieurs fois en passant (7.4, 7.5) — il mérite ici sa place propre pour en expliquer clairement le "pourquoi", avant que vous ne le pratiquiez concrètement en partie 8.
 
@@ -941,7 +941,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.9 Configuration & profils
+### 7.10 Configuration & profils
 
 **Pourquoi vers la fin de cette partie ?** La configuration devient concrètement utile une fois que vous avez quelque chose à configurer (une base de données, une URL externe) — la placer avant les sous-parties précédentes aurait été abstrait sans exemple réel à s'y raccrocher.
 
@@ -966,7 +966,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.10 Spring Boot Actuator (observabilité minimale)
+### 7.11 Spring Boot Actuator (observabilité minimale)
 
 **Pourquoi une brève mention à ce stade, avant même d'avoir une vraie base de données ?** Une fois une API en état de fonctionner (ce qui sera le cas à l'issue du fil rouge de cette partie), il devient utile de savoir "est-ce que mon application tourne correctement ?" — un besoin simple qui mérite d'être planté dès maintenant, avant d'être développé plus largement en partie 13 (observabilité avancée).
 
@@ -980,7 +980,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ---
 
-### 7.11 CORS pour un frontend Angular
+### 7.12 CORS pour un frontend Angular
 
 **Pourquoi en toute fin de partie ?** C'est le tout dernier maillon avant que votre API Spring Boot puisse réellement être appelée depuis votre application Angular — la conclusion logique et pratique de cette longue partie.
 
