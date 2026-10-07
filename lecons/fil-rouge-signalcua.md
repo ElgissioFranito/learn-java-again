@@ -47,3 +47,11 @@ La classe `Reclamation` est reconstruite : champs `private`/`final`, transitions
 4. **En bonus** : coupe urgent/non-urgent (`partitioningBy`), en-tête collé (`joining`), index par id (`toMap`).
 
 À retenir pour la suite : la partie 5 clôt la **phase console** — tout ce qui précède (représenter, échouer, traiter) reste valable, mais le code vit encore « à la main » dans un dossier. La partie 6 lui donne une structure Maven ; la partie 8 remplacera les listes par une base PostgreSQL, où `groupingBy` servira à mettre en forme les résultats des requêtes.
+
+## 📌 Étape 6 — Partie 6 : SignalCUA devient un vrai projet Maven
+
+1. **Projet structuré** (leçon 01) : coordonnées `fr.cua.signalcua:signalcua:0.0.1-SNAPSHOT`, Java 21, arborescence `src/main/java` / `src/test/java`, packages `model` (`Reclamation`, `Priorite`, `StatutReclamation`), `repository` (`RegistreReclamations`), `exception` (`SignalcuaException`, `ReclamationNotFoundException`) — classes **déplacées sans réécriture** (seuls `package` + `import` changent), `target/` ignoré.
+2. **Premier test vert** (leçon 01) : `RegistreReclamationsTest` (JUnit 5, scope `test`) — `creerPuisRetrouver` + `introuvableLeve` → `Tests run: 2, Failures: 0` ; `./mvnw package` produit `target/signalcua-0.0.1-SNAPSHOT.jar`.
+3. **Lecture Gradle** (leçon 02, sans migration) : le jumeau `build.gradle.kts` décodé bloc par bloc ; choix acté — SignalCUA **reste Maven** (solo, build de secondes), Gradle seulement si un besoin futur l'exige.
+
+À retenir pour la suite : la partie 6 clôt la **phase Maven** — sans changer une ligne de logique, le code est désormais buildable en une commande (`./mvnw clean package`) sur toute machine. La partie 7 prend ce projet tel quel : le `pom.xml` y gagnera le parent Spring Boot et le registre deviendra un `@Service` exposé en HTTP.

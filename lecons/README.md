@@ -46,7 +46,7 @@
 - [x] Partie 3 — Collections, Generics, Optionals
 - [x] Partie 4 — Exception Handling
 - [ ] Partie 5 — Fonctionnel & Streams
-- [ ] Partie 6 — Maven / Gradle
+- [x] Partie 6 — Maven / Gradle
 - [ ] Partie 7 — Spring Boot & DI
 - [ ] Partie 8 — Spring Data JPA
 - [ ] Partie 9 — Tests
