@@ -1,6 +1,8 @@
 # Roadmap détaillée Java → Spring Boot (dev Angular → Java)
 
-> Ce document est pensé comme un parcours guidé, pas comme une encyclopédie à parcourir dans le désordre. Chaque partie explique, avant d'entrer dans le détail, **pourquoi elle arrive à ce moment précis** — pour qu'aucune notion ne vous tombe dessus sans que vous compreniez d'où elle vient. Les parties n'ont volontairement pas toutes la même taille : certaines (Exception Handling) tiennent en trois sous-chapitres parce que le sujet est simple ; d'autres (Spring Boot) en comptent onze parce que c'est là que se joue la majorité de votre futur travail quotidien.
+> Ce document est pensé comme un parcours guidé, pas comme une encyclopédie à parcourir dans le désordre. Chaque partie explique, avant d'entrer dans le détail, **pourquoi elle arrive à ce moment précis** — pour qu'aucune notion ne vous tombe dessus sans que vous compreniez d'où elle vient. Les parties n'ont volontairement pas toutes la même taille : certaines (Exception Handling) tiennent en deux sous-chapitres parce que le sujet est simple ; d'autres (Spring Boot) en comptent onze numérotés (7.1 à 7.11) plus une leçon-pont pratique, parce que c'est là que se joue la majorité de votre futur travail quotidien.
+>
+> **Correspondance avec les dossiers `lecons/`** : chaque sous-chapitre `X.Y` correspond à un dossier de leçon, dans l'ordre. Deux cas particuliers : en partie 8, le sous-chapitre `8.0` (JDBC) correspond au dossier `00-jdbc-...` (le `00` garde le `0` du `8.0`) ; en partie 7, une leçon-pont `02-premier-projet-springboot` (créer et lancer un projet via Initializr) s'insère entre `7.1` et `7.2` sans numéro roadmap — d'où 12 dossiers pour 11 sous-chapitres numérotés. En parties 13 et 14, plusieurs sous-sections sont regroupées en un seul dossier de synthèse (voir notes sous chaque partie).
 
 ---
 
@@ -738,7 +740,7 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 
 ## Partie 7 — Spring Boot & Dependency Injection
 
-**Pourquoi cette partie est, de loin, la plus détaillée du guide ?** Tout ce que vous avez appris jusqu'ici — objets, collections, exceptions, build — était un prérequis pour arriver ici : c'est Spring Boot qui structurera concrètement 80% de votre travail quotidien de développeur backend. Une partie courte ici donnerait une fausse impression de simplicité sur ce qui est en réalité le cœur de votre objectif professionnel — d'où ses **onze sous-chapitres**, contre trois pour les exceptions.
+**Pourquoi cette partie est, de loin, la plus détaillée du guide ?** Tout ce que vous avez appris jusqu'ici — objets, collections, exceptions, build — était un prérequis pour arriver ici : c'est Spring Boot qui structurera concrètement 80% de votre travail quotidien de développeur backend. Une partie courte ici donnerait une fausse impression de simplicité sur ce qui est en réalité le cœur de votre objectif professionnel — d'où ses **onze sous-chapitres numérotés (7.1 à 7.11) plus une leçon-pont pratique (7.1-bis)**, contre deux pour les exceptions.
 
 ### 7.1 Pourquoi un framework ? (avant même le "comment")
 
@@ -747,6 +749,31 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 **Le problème concret** : dans SignalCUA (partie 6), votre `ReclamationService` a besoin d'un `ReclamationRepository`. Sans framework, vous devriez écrire vous-même, quelque part, `new ReclamationRepositoryMemoire()` puis le passer à `new ReclamationService(repository)`. Multipliez ça par des dizaines de classes qui dépendent les unes des autres, et cette "plomberie" devient vite un fardeau à maintenir manuellement.
 
 **La solution Spring** : vous **déclarez** vos classes (via des annotations) et leurs dépendances (via leur constructeur), et c'est Spring qui se charge, au démarrage de l'application, de créer chaque objet et de le connecter aux autres automatiquement. C'est ce qu'on appelle l'**inversion de contrôle** (IoC) : ce n'est plus vous qui contrôlez la création des objets, c'est le framework — d'où son nom.
+
+> **Correspondance dossiers** : `01-pourquoi-un-framework` ← 7.1 (ci-dessus).
+
+---
+
+### 7.1-bis Premier projet Spring Boot : Initializr, `@SpringBootApplication`, `./mvnw spring-boot:run` (leçon-pont)
+
+**Pourquoi cette leçon-pont entre le « pourquoi » (7.1) et le « comment » (7.2) ?** La partie 6 a montré Initializr sans démarrer Spring ; la partie 7.2 va expliquer l'injection sans avoir encore lancé l'application. Il manque une marche : créer le projet pour de vrai, le lancer, voir qu'il démarre — avant de théoriser. Sans elle, `@SpringBootApplication` tomberait du ciel en 7.2.
+
+**Essentiels**
+
+- Générer via **Spring Initializr** (start.spring.io) : projet **Maven**, Java **21**, packaging **Jar**, dépendance `spring-boot-starter-web` (pour une API REST).
+- La classe `@SpringBootApplication` : point d'entrée (`main` qui appelle `SpringApplication.run(...)`) — elle active à la fois la configuration automatique, le scan des beans et la configuration Spring Boot.
+- Lancer avec `./mvnw spring-boot:run` (recharge rapide en dev) ; vérifier `Tomcat started on port 8080` dans les logs puis `http://localhost:8080/actuator/health` (ou la racine) répond.
+- Arborescence générée : `src/main/java/.../SignalcuaApplication.java`, `src/main/resources/application.properties`, `src/test/...` avec un premier test de contexte (`contextLoads`).
+
+**Erreurs à éviter**
+
+- Lancer avec `java -jar` avant d'avoir fait `package` : en dev, préférez `spring-boot:run` (pas de `.jar` à reconstruire à chaque changement).
+- Changer la version Java après génération (projet en 17 ouvert avec un JDK 8) : alignez `java.version`, `source/target` et le JDK d'exécution dès le départ.
+- Cocher trop de dépendances Initializr « au cas où » : même règle qu'en partie 6 — chaque starter alourdit le démarrage et la surface à comprendre.
+
+**Quand l'utiliser** : une seule fois par projet — c'est la porte d'entrée, pas une pratique quotidienne.
+
+> **Correspondance dossiers** : `02-premier-projet-springboot` ← 7.1-bis (cette leçon-pont, sans numéro d'origine).
 
 ---
 
@@ -774,6 +801,8 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 **Quand l'utiliser** : partout — c'est le mécanisme fondamental sur lequel repose tout le reste de Spring Boot.
 
 **Bonnes pratiques 2025-2026** : Spring Boot 3.x repose sur Jakarta EE (annotations `jakarta.*`, et non plus `javax.*`) — un point de vigilance si vous suivez un tutoriel écrit avant 2023, qui utilisera probablement l'ancien nom de package.
+
+> **Correspondance dossiers (7.2 → 7.11)** : la leçon-pont 7.1-bis décale la numérotation des dossiers de +1 par rapport aux numéros ci-dessous. Table complète : `03-ioc-et-di` ← 7.2, `04-stereotypes-spring` ← 7.3, `05-controleurs-rest` ← 7.4, `06-validation-des-entrees` ← 7.5, `07-gestion-centralisee-des-erreurs` ← 7.6, `08-services-et-architecture-en-couches` ← 7.7, `09-dtos-et-mapping-entity-dto` ← 7.8, `10-configuration-et-profils` ← 7.9, `11-spring-boot-actuator` ← 7.10, `12-cors-frontend-angular` ← 7.11.
 
 ---
 
@@ -1408,11 +1437,15 @@ Ce que ça vous fait pratiquer, sans vertige de tout apprendre en même temps : 
 - 🟢 **Pertinent mais pas urgent** : utile un jour, sans raison de se précipiter.
 - 🔵 **À connaître de nom seulement** : comprendre le principe en une phrase, pour ne pas être perdu si le sujet apparaît en réunion ou dans un article — sans l'approfondir maintenant.
 
+> **Correspondance dossiers** : le tableau ci-dessus est regroupé en un seul dossier de synthèse `01-carte-des-sujets-a-connaitre` (pas un dossier par sujet).
+
 ---
 
 ## Partie 14 — Pont Angular ↔ Spring Boot (synthèse)
 
 **Pourquoi cette dernière partie, alors que les ponts Angular ont déjà été mentionnés tout au long du guide ?** Chaque pont a été introduit au moment précis où il devenait pertinent (DTOs en 7.8, CORS en 7.11, JWT en 12.2...) — plutôt que de vous les faire retenir hors contexte. Cette partie les rassemble en un seul endroit consultable, maintenant que vous avez tout le contexte nécessaire pour chacun.
+
+> **Correspondance dossiers** : les 4 sous-sections 14.1 à 14.4 sont regroupées en un seul dossier de synthèse `01-pont-angular-springboot`.
 
 ### 14.1 Contrats de données
 
