@@ -20,7 +20,8 @@ class Reclamation {
     private final Priorite priorite; // niveau d'urgence, jamais modifié
     private final StatutReclamation statut; // état d'avancement
     private final String description; // texte libre du signalement
-    // + constructeur, getters getId()/getQuartier()/getPriorite()/getStatut()/getDescription(), toString()
+    private final LocalDateTime dateDeclaration; // date+heure du signalement (type `LocalDateTime`, rappel partie 3 ; sert dès l'étape 4 : pensez à l'ajouter + `getDateDeclaration()`, `import java.time.LocalDateTime`)
+    // + constructeur, getters getId()/getQuartier()/getPriorite()/getStatut()/getDescription()/getDateDeclaration(), toString()
 }
 ```
 
@@ -63,7 +64,7 @@ Toujours dans le `main` :
 
 1. Triez par identifiant (`Comparator.comparingInt(Reclamation::getId)`).
 2. Triez par quartier **puis** par identifiant (`comparing(...).thenComparing(...)`).
-3. Triez les plus récentes d'abord (il faut une `dateDeclaration` de type `LocalDateTime` sur `Reclamation`, rappel partie 3, puis `.reversed()`).
+3. Triez les plus récentes d'abord grâce au champ `dateDeclaration` **déjà présent** dans le modèle ci-dessus (puis `.reversed()`).
 
 Affichez les identifiants après chaque tri (par exemple `[3, 1, 2]`).
 

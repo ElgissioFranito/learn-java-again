@@ -1,6 +1,6 @@
 # Correction détaillée — Exercice 03 « Le rapport de statistiques SignalCUA »
 
-> 🧭 **Comment ce fichier s'articule** : vous venez de tenter `02-exercice.md`. Voici la solution complète, les choix expliqués, la **sortie réellement obtenue** (Java 21), les erreurs fréquentes, la checklist et des conseils. Si votre programme produit la même sortie (à l'ordre des Maps près, voir étape 1), l'objectif est atteint.
+> 🧭 **Comment ce fichier s'articule** : vous venez de tenter `02-exercice.md`. Voici la solution complète, les choix expliqués, la **sortie réellement obtenue** (Java 21), les erreurs fréquentes, la checklist et des conseils. Si votre programme produit la même sortie (à l'ordre des Maps près, voir étape 1), l'objectif est atteint. Sorties **réellement obtenues** avec `javac`/`java` 21 (`recentes=[3, 4]`, `ouverts=[2, 6, 1, 4, 3]`, `comptes={NOUVELLE=3, EN_COURS=2, RESOLUE=1}`, `id3=Lampadaire eteint`, `urgentes=2 autres=4`, `doublon refusé OK`).
 
 ## Correction pas a pas
 

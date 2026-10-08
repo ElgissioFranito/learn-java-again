@@ -35,9 +35,9 @@ List<String> quartiers = toutes.stream()
 
 ```java
 // ❌ Version boucle : vous gérez le contenant, le parcours, l'ajout — 3 responsabilités mélangées
-Map<StatutReclamation, Long> comptes = new EnumMap<>(StatutReclamation.class);
+Map<StatutReclamation, Long> comptes = new EnumMap<>(StatutReclamation.class); // `EnumMap` = une `Map` optimisée pour les clés enum (rappel partie 3)
 for (Reclamation r : toutes) {
-    comptes.merge(r.getStatut(), 1L, Long::sum); // merge = « ajoute 1, ou additionne si présent »
+    comptes.merge(r.getStatut(), 1L, Long::sum); // `merge(clé, valeur, fusion)` = « si absent, pose 1 ; si présent, additionne » (`Long::sum` = la fonction d'addition)
 }
 
 // ✅ Version Collector : vous déclarez le RANGEMENT, Java fait le reste
@@ -227,6 +227,9 @@ Par défaut, `toList()` (Java 16+) rend une liste **immuable** (« qu'on ne peut
 | **Immuable** | Un résultat **non modifiable** (`add` lève `UnsupportedOperationException`) : le défaut sain à exposer. |
 | **`Function.identity()`** | « La fonction qui rend son entrée » (`r -> r` écrit proprement). |
 | **O(1)** | « Temps constant » : retrouver dans une `Map` coûte pareil quelle que soit sa taille (rappel partie 3). |
+| **`EnumMap` / `merge`** | `EnumMap` = `Map` optimisée pour enum ; `merge(k, v, f)` = insère ou fusionne si présent. |
+| **`CharSequence`** | Une « séquence de caractères » (`String`, `StringBuilder`...) : ce que `joining` sait coller (pas des `Integer`). |
+| **`?` (joker)** | Dans `Collector<T, ?, R>` : détail interne qu'on ignore (T = entrée, R = résultat). |
 
 ---
 

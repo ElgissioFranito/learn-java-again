@@ -24,7 +24,7 @@
 
 **Analogie** : Maven = **menu du restaurant** (entrée-plat-dessert dans l'ordre, pas de surprise). Gradle = **cuisine équipée** (mêmes ingrédients possibles, mais vous pouvez inventer vos propres recettes et ustensiles). Le menu est plus rassurant seul ; la cuisine équipée paie quand on cuisine pour 50 tables (gros monorepo) ou quand chaque seconde compte (cache incrémental : Gradle ne refait que ce qui a changé).
 
-**Le lien avec npm, encore** : si Maven ≈ `package.json` rigide, Gradle ≈ un `package.json` + des scripts `node` sur mesure. Même besoin, curseur différent entre *convention* (Maven) et *flexibilité* (Gradle).
+> 📦 **Si vous venez de JS/npm (optionnel)** : si Maven ≈ `package.json` rigide, Gradle ≈ un `package.json` + des scripts `node` sur mesure. Même besoin, curseur différent entre *convention* (Maven) et *flexibilité* (Gradle). Sinon, retenez : Maven = menu imposé, Gradle = cuisine programmable.
 
 **Quand choisir quoi ?** Tableau de décision (à garder) :
 

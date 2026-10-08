@@ -29,17 +29,15 @@ javac Reclamation.java RegistreReclamations.java Main.java
 java Main
 ```
 
-Ça marche avec 5 fichiers. Mais imaginez la suite : vous voulez utiliser **JUnit** (une bibliothèque de tests écrite par d'autres), puis **Spring Boot** (des dizaines de bibliothèques liées entre elles). Il faudrait alors **télécharger chaque fichier `.jar` à la main**, trouver les bonnes versions compatibles, les passer un par un à `javac` avec `-cp` (classpath, voir vocabulaire), recommencer sur chaque machine... C'est fragile et non reproductible.
+Ça marche avec 5 fichiers. Mais imaginez la suite : vous voulez utiliser **JUnit** (LA bibliothèque de tests Java : elle exécute vos méthodes `@Test` et vérifie vos assertions ; détaillée en partie 9, ici juste le minimum), puis **Spring Boot** (le framework qui fera votre API en partie 7 : des dizaines de bibliothèques liées entre elles). Il faudrait alors **télécharger chaque fichier `.jar`** (un `.jar` = *Java Archive*, un zip de classes exécutable via `java -jar`) **à la main**, trouver les bonnes versions compatibles, les passer un par un à `javac` avec `-cp` (le **classpath** = la liste des endroits où `javac`/`java` cherchent les classes ; Maven le construira pour vous, voir 📖 Vocabulaire), recommencer sur chaque machine... C'est fragile et non reproductible.
 
 Un outil de **build** (construction) automatise tout cela. **Analogie** : si `javac` est une **cuillère** (on mélange à la main), Maven est une **recette + un robot cuiseur** : la recette dit *quels ingrédients* (dépendances) et *quelles étapes* (compiler, tester, emballer), le robot va chercher les ingrédients, exécute les étapes **toujours dans le même ordre**, et rend le même plat sur toutes les machines.
 
-**Parallèle avec npm (côté Angular, que vous connaissez déjà)** : `package.json` ↔ `pom.xml` (la recette), `node_modules` ↔ dépôt local Maven (le garde-manger), `npm install` ↔ `mvn package` (va chercher + construit). Si vous avez compris npm, vous avez déjà compris 80 % de Maven : seule la syntaxe change.
+> 📦 **Si vous venez de JavaScript/npm (optionnel, vous pouvez sauter)** : `package.json` ↔ `pom.xml` (la recette), `node_modules` ↔ dépôt local Maven `~/.m2` (le garde-manger : `~` = votre dossier personnel, `.m2` = réserve Maven dedans), `npm install` ↔ `./mvnw package` (va chercher + construit). Si vous ne venez pas de JS, ignorez ce parallèle : l'analogie **recette + robot cuiseur** ci-dessus suffit.
 
-**Quand utiliser Maven ?** Dès que le projet a **plus de 2-3 fichiers**, ou **une seule dépendance externe**, ou doit être construit **ailleurs** que sur votre machine (CI, collègue, serveur). En pratique entreprise 2025-2026 : **toujours**, sauf exercice d'une page. C'est pourquoi la partie 7 (Spring Boot) l'exige : Spring Boot n'est qu'un paquet de dépendances Maven bien choisies.
+**Quand utiliser Maven ?** Dès que le projet a **plus de 2-3 fichiers**, ou **une seule dépendance externe**, ou doit être construit **ailleurs** que sur votre machine (CI = *Continuous Integration*, le serveur qui rebuild à chaque commit ; voir 📖 Vocabulaire — collègue, serveur). En pratique entreprise 2025-2026 : **toujours**, sauf exercice d'une page. C'est pourquoi la partie 7 (Spring Boot) l'exige : Spring Boot n'est qu'un paquet de dépendances Maven bien choisies.
 
 > Pourquoi on passe de ce constat à la section suivante : une fois admis qu'il faut une « recette », il faut apprendre à la lire. C'est le rôle du `pom.xml`.
-
-> Pourquoi on passe de ce constat à la suite : une fois admis qu'il faut une « recette », il faut apprendre à la lire. C'est le rôle du `pom.xml`.
 
 ### 2.2 Le `pom.xml` : la carte d'identité + la recette
 
@@ -113,6 +111,12 @@ validate -> compile -> test -> package -> verify -> install
 
 Concrètement : `./mvnw test` exécute `validate` + `compile` + `test`. `./mvnw package` va jusqu'à `package` : il **compile ET teste avant d'emballer** — un projet aux tests rouges ne produit **jamais** de `.jar`. `./mvnw install` copie le `.jar` fini dans le **dépôt local** (garde-manger `~/.m2`) pour d'autres projets de la machine.
 
+**`clean`** = le **ménage** : supprime `target/`. Combinaison la plus courante : `./mvnw clean package` (« nettoie puis reconstruis tout »).
+
+**Phase vs plugin vs goal (à ne plus confondre)** : la **phase** est une *étape du planning* (`compile`, `test`). Le **plugin** est l'*ouvrier* (`maven-compiler-plugin` compile, `maven-surefire-plugin` lance les tests — `compiler-plugin` compile, `surefire` lance les tests, voir 📖 Vocabulaire). Le **goal** est la *tâche précise* (`compiler:compile`). Le cycle **attache** des goals aux phases : demander la phase `test` appelle le goal `surefire:test`. Vous n'appellerez presque jamais un goal directement, sauf `dependency:tree` (voir 2.6).
+
+> Pourquoi on passe d'ici aux scopes : le cycle compile et teste ; encore faut-il dire *quelles dépendances sont visibles à quelle étape*.
+
 ### 2.5 Les scopes : qui voit quoi, et quand
 
 Chaque dépendance déclare un **scope** (portée = « à quelles étapes est-elle visible ? ») :
@@ -149,21 +153,17 @@ fr.cua.signalcua:signalcua:jar:0.0.1-SNAPSHOT
 
 **Analogie** : comme un **arbre généalogique** du projet. Quand « ça ne marche plus après ajout d'une lib », le premier réflexe pro = `dependency:tree` pour trouver le doublon.
 
-Le **BOM** (*Bill of Materials*, « nomenclature ») règle le problème **en amont** : c'est un `pom.xml` spécial (ex. `spring-boot-dependencies`) qui **fixe d'un coup** toutes les versions compatibles d'un écosystème. L'importer (partie 7), c'est commander le **menu du chef** au lieu de composer plat par plat au risque d'incompatibilités. Sans BOM : versions incohérentes, erreurs bizarres.
+Le **BOM** (*Bill of Materials*, « nomenclature ») règle le problème **en amont** : c'est un `pom.xml` spécial (ex. `spring-boot-dependencies`) qui **fixe d'un coup** toutes les versions compatibles d'un écosystème. L'importer (partie 7), c'est utiliser la **liste d'ingrédients validée par le chef** (même idée que le "menu du restaurant" Maven, mais à l'échelle d'un écosystème : versions testées ensemble) au lieu de composer plat par plat au risque d'incompatibilités. Sans BOM : versions incohérentes, erreurs bizarres.
 
 > Pourquoi on passe d'ici au wrapper : l'arbre est sain, le menu est fixé. Reste à builder **sans installer Maven** sur chaque machine.
 
 
-**`clean`** = le **ménage** : supprime `target/`. Combinaison la plus courante : `./mvnw clean package` (« nettoie puis reconstruis tout »).
 
-**Phase vs plugin vs goal (à ne plus confondre)** : la **phase** est une *étape du planning* (`compile`, `test`). Le **plugin** est l'*ouvrier* (`maven-compiler-plugin` compile, `maven-surefire-plugin` lance les tests). Le **goal** est la *tâche précise* (`compiler:compile`). Le cycle **attache** des goals aux phases : demander la phase `test` appelle le goal `surefire:test`. Vous n'appellerez presque jamais un goal directement, sauf `dependency:tree` (voir 2.6).
-
-> Pourquoi on passe d'ici aux scopes : le cycle compile et teste ; encore faut-il dire *quelles dépendances sont visibles à quelle étape*.
 
 
 ### 2.7 Le wrapper `mvnw` : Maven sans installer Maven
 
-Le **wrapper** est un petit script (`mvnw` sur Linux/Mac, `mvnw.cmd` sur Windows) **versionné dans le projet** avec son dossier `.mvn/`. Au premier lancement, il **télécharge** la bonne version de Maven, puis rejoue votre commande. Ensuite, tout le monde (vous, CI, collègue) utilise **exactement la même version**.
+Le **wrapper** est un petit script (`mvnw` sur Linux/Mac, `mvnw.cmd` sur Windows — rappel de l'introduction de partie : `mvn` = votre install globale optionnelle, `mvnw` = le script fourni dans le projet) **versionné dans le projet** avec son dossier `.mvn/`. Au premier lancement, il **télécharge** la bonne version de Maven, puis rejoue votre commande. Ensuite, tout le monde (vous, CI, collègue) utilise **exactement la même version**.
 
 ```bash
 ./mvnw -version # le ./ dit : « prends le script D'ICI, pas un mvn global »
@@ -332,7 +332,20 @@ Règle de migration : **on déplace, on ne réécrit pas** — seule la premièr
 
 ### 3.3 Les 4 commandes du quotidien et le `.gitignore`
 
+> On a la recette (§3.1) et les tiroirs (§3.2) : il reste le geste quotidien — une commande = tout le build (les sorties complètes sont rejouées dans la correction).
+
 ```bash
+./mvnw test # 1) compile le code + les tests, puis exécute les tests (plugin Surefire)
+./mvnw package # 2) tout jusqu'au .jar : target/signalcua-0.0.1-SNAPSHOT.jar
+java -jar target/signalcua-0.0.1-SNAPSHOT.jar # 3) exécute le livrable
+./mvnw clean package # 4) reconstruction complète depuis zéro (ménage + build)
+```
+
+Fichier `.gitignore` (à la racine, à côté du `pom.xml`) :
+
+```text
+target/ # le plan de travail ne se commite jamais
+```
 
 ---
 

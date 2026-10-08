@@ -1,6 +1,8 @@
 # 00 — Introduction de la partie 6 : builder SignalCUA comme un vrai projet
 
-> 🧭 **Pourquoi ce fichier existe, et pourquoi il se lit APRÈS les leçons ?** Les 2 leçons de cette partie définissent chaque terme nouveau dans leur **mini-glossaire**. Mais quelques notions **transversales** apparaissent dans le texte ou les commandes sans y être définies « à part entière ». Ce fichier les **rassemble**. Lisez-le en **dernier**, comme un **filet de rattrapage**.
+> 🧭 **Pourquoi ce fichier existe, et comment le lire ?** Le **pont d'entrée** (section suivante) se lit **AVANT** les leçons. Le **vocabulaire transversal** (sections A/B/C) est un **filet de rattrapage** à lire **APRÈS** si un mot vous échappe, mais chaque terme y est aussi défini **en une phrase dès sa première utilisation** dans les leçons (règle zéro-étonnement).
+>
+> 🔧 **Formateur Java** : on distingue l'essentiel (Maven + 1 test vert) du secondaire (Gradle = lecture seule, Nexus/multi-modules = juste de nom).
 
 ---
 
@@ -13,7 +15,30 @@
 | 01 — Maven | recette `pom.xml`, tiroirs `src/...`, cycle `compile → test → package`, scopes, wrapper `./mvnw`, Initializr, 1er test JUnit vert | « `javac` à la main ne gère ni dépendances ni reproductibilité » |
 | 02 — Gradle (aperçu) | lire un `build.gradle.kts` avec des yeux Maven, commandes jumelles, tableau de choix | « un projet imposé en Gradle est illisible » |
 
-La leçon 02 traduit chaque bloc Gradle en notion Maven de la leçon 01. L'**Étape 6** du fil rouge — **projet Maven buildable + test vert** — se construit dans la leçon 01, la leçon 02 ne migrant rien (voir `lecons/fil-rouge-signalcua.md`).
+La leçon 02 traduit chaque bloc Gradle en notion Maven de la leçon 01.
+
+> 🔧 **`mvn` ou `./mvnw` ? (à lire AVANT la leçon 01, zéro installation surprise)**
+>
+> - **`mvn`** = la commande **globale**. Elle n'existe que **si vous avez installé Maven** sur votre poste. Pratique, mais pas garantie ailleurs (collègue, CI, serveur).
+> - **`mvnw`** (`mvnw.cmd` sur Windows) = le **petit script fourni DANS le projet** (avec son dossier `.mvn/`), généré par Spring Initializr. **Rien à installer** : au premier `./mvnw ...`, il **télécharge** la bonne version de Maven puis rejoue votre commande. Ensuite tout le monde utilise **exactement la même version**.
+> - **`./`** devant = « prends le script D'ICI » (Linux/Mac : le dossier courant n'est pas cherché par défaut, par sécurité). Preuve : `mvnw` tapé seul répond toujours `commande introuvable` (même sur un poste avec Maven 3.9.9) — toujours `./mvnw` depuis `signalcua/`.
+> - **`PATH`** = la liste des dossiers où le shell cherche les commandes (`echo $PATH`). `mvn` marche parce que votre `~/.bashrc` y a ajouté `MAVEN_HOME/bin` ; sans ça, même `mvn` répondrait « introuvable ». `JAVA_HOME` dit où est le JDK 21.
+> - **Règle pro** : dans un projet à wrapper, toujours `./mvnw`, jamais `mvn` global — même si `mvn` est installé chez vous. Même logique côté Gradle : `gradle` global vs `./gradlew` wrapper.
+>
+> **Analogie (formateur Java)** : `mvn` = votre propre tournevis ; `mvnw` = le tournevis **fourni dans la boîte du meuble**, au bon format. On utilise celui de la boîte pour que tout le monde visse pareil.
+
+### Ce qu'il faut avoir / ce qui arrive tout seul
+
+| Il vous faut... | À installer ? | D'où ça vient ? |
+|---|---|---|
+| **JDK 21** (`javac` + `java`) | **Oui : à vérifier** (`java -version` doit afficher 21) | installateur (Temurin/Oracle...) ; pour Maven global, `JAVA_HOME` doit pointer dessus (Gradle `toolchain` s'en charge seul, leçon 02) |
+| **`mvn` global** | **Optionnel** (pratique si vous l'avez) | installation manuelle — **non requis** si le projet a son wrapper |
+| **`mvnw` + `.mvn/`** | **Fourni, rien à installer** | déjà dans le zip Initializr, versionné en Git |
+| **`~/.m2`** (garde-manger) | **Créé tout seul** | Maven y range les `.jar` téléchargés depuis le Central |
+| **`start.spring.io` (Initializr)** | **Site web, pas un install** | génère `pom.xml` + arborescence + wrapper |
+| **`target/`** | **Généré, jamais commité** | recréé par `./mvnw package` (pendant Gradle : `build/`) |
+
+L'**Étape 6** du fil rouge — **projet Maven buildable + test vert** — se construit dans la leçon 01, la leçon 02 ne migrant rien (voir `lecons/fil-rouge-signalcua.md`).
 
 ---
 
@@ -27,13 +52,16 @@ La leçon 02 traduit chaque bloc Gradle en notion Maven de la leçon 01. L'**Ét
 |---|---|
 | **XML / balise** | Format texte à `<balise>contenu</balise>` (cousin du HTML). Le `pom.xml` en est écrit. |
 | **Classpath (`-cp`)** | La **liste des endroits** où `javac`/`java` cherchent les classes. Maven le construit pour vous. |
-| **Surefire / compiler-plugin** | Les deux ouvriers rencontrés : le premier **compile**, le second **lance les tests**. |
+| **Surefire / compiler-plugin** | Les deux ouvriers rencontrés : `maven-compiler-plugin` **compile**, `maven-surefire-plugin` **lance les tests**. |
 | **Changelog** | Le **journal des changements** d'une lib, version par version : à lire avant toute mise à jour. |
 | **`~/.m2`** | Le dépôt local : `~` = dossier personnel, `.m2` = garde-manger Maven dedans. |
 | **`mvnw.cmd` / `gradlew.bat`** | Les pendants **Windows** de `mvnw` / `gradlew` (même rôle). |
 | **Packaging `Jar` (vs `War`)** | `Jar` = appli autonome (`java -jar`) ; `War` = archive pour serveur externe (ancien usage). |
 
+### B. Ce que votre poste doit avoir (installé / fourni / généré)
 
+| Terme | Définition complète |
+|---|---|
 | **JDK / `JAVA_HOME`** | Le *Java Development Kit* (`javac` + `java`) ; `JAVA_HOME` dit où il est installé. En Maven elle doit viser un JDK 21 ; en Gradle la `toolchain` s'en charge. |
 | **LTS** | *Long Term Support* : version maintenue des années (21...) vs éphémères (6 mois). On vise toujours une LTS. |
 | **Groovy / Kotlin** | Deux langages de la JVM : Groovy, souple et historique des builds ; Kotlin, moderne et typé, base du `.kts`. |

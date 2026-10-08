@@ -243,6 +243,8 @@ liste.sort(Comparator.comparing(Reclamation::getId).reversed());
 | **`Comparator.comparing(...)`** | Fabrique un comparateur à partir d'une **fonction d'extraction de clé** (`thenComparing` enchaîne, `reversed` inverse). |
 | **Inférence de type** | Le compilateur **devine** les types (paramètres de lambda, génériques) à partir du contexte, sans que vous les écriviez. |
 | **`Runnable`** | Interface standard « tâche à exécuter plus tard » (méthode `run()`, sans entrée ni sortie). |
+| **Boxing** | L'emballage auto `int` → `Integer` (coûteux en boucle ; `comparingInt`/`IntStream` l'évitent). |
+| **NPE** | *NullPointerException* : l'erreur quand on appelle une méthode sur `null` (rappel partie 3 : préférez `"Medina".equals(...)`). |
 
 ---
 
@@ -274,7 +276,8 @@ static List<Reclamation> filtrer(List<Reclamation> toutes, FiltreReclamation fil
 // À l'appel : on donne LE COMPORTEMENT sous forme de lambda
 List<Reclamation> urgentes = filtrer(toutes, r -> r.getPriorite() == Priorite.URGENTE);
 List<Reclamation> deMedina = filtrer(toutes, r -> "Medina".equals(r.getQuartier()));
-List<Reclamation> recentes  = filtrer(toutes, r -> r.getDateDeclaration().isAfter(hier));
+LocalDateTime hier = LocalDateTime.now().minusDays(1); // `LocalDateTime` = date+heure (rappel partie 3) ; `hier` = il y a 24 h
+List<Reclamation> recentes  = filtrer(toutes, r -> r.getDateDeclaration().isAfter(hier)); // `getDateDeclaration()` suppose le champ `dateDeclaration` (présent dès le modèle de l'exercice 01)
 ```
 
 Observez : la méthode `filtrer` n'a **jamais** été modifiée. Chaque appel apporte son **propre critère**. C'est la puissance de « passer du comportement ».
@@ -479,7 +482,7 @@ liste.sort((a, b) -> a.getId() - b.getId());
 liste.sort(Comparator.comparingInt(Reclamation::getId)); // comparingInt = variante pour clés int
 ```
 
-**Pourquoi** : `comparing(...)` (et ses variantes `comparingInt`, `comparingLong`, `comparingDouble`) **élimine** toute la mécanique de comparaison. Notez `comparingInt` : pour une clé `int`, il évite le **boxing** (partie 1 : l'emballage coûteux `int` → `Integer`).
+**Pourquoi** : `comparing(...)` (et ses variantes `comparingInt`, `comparingLong`, `comparingDouble`) **élimine** toute la mécanique de comparaison. Notez `comparingInt` : pour une clé `int`, il évite le **boxing** (le *boxing* = l'emballage automatique `int` → `Integer` qui coûte en mémoire/vitesse, rappel partie 1 ; voir 📖 Vocabulaire `IntStream`).
 
 ### Piège 8 — La lambda « couteau suisse » de 20 lignes
 

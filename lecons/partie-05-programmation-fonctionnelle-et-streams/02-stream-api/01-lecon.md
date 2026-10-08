@@ -195,6 +195,9 @@ double moyenne = toutes.stream()
 | **`IntStream` / `LongStream` / `DoubleStream`** | Streams de **primitifs** (pas d'objets) : pas de boxing, terminaux `sum()`/`average()`. |
 | **`parallelStream()`** | Variante qui répartit le travail sur **plusieurs fils** (à n'utiliser qu'après mesure). |
 | **`OptionalDouble` / `OptionalInt` / `OptionalLong`** | Les `Optional` des primitifs (rendus par `average()`, `min()`… sur streams numériques). |
+| **DTO** | *Data Transfer Object* : petite fiche qui ne transporte que le nécessaire (ici `ReclamationLite`) pour ne pas exposer tout l'objet. |
+| **Boxing** | L'emballage auto `int` → `Integer` (coûteux ; `IntStream`/`mapToInt` l'évitent — rappel leçon 01). |
+| **NPE** | *NullPointerException* : appeler une méthode sur `null` (rappel partie 3). |
 
 ---
 
@@ -401,7 +404,7 @@ List<String> agents = toutes.stream()
         .toList(); // ["Amadou", ...] : plate et propre
 ```
 
-**Pourquoi** : `Optional.stream()` (« le contenu comme un mini-flux : 0 ou 1 élément ») est fait pour ça. C'est le même réflexe que 2.6 : dès qu'une étape produit des « boîtes », `flatMap` les ouvre. (Note : `getAgentAffecte()` est un ajout d'exemple — `Optional<String>` vide = « pas encore d'agent », rappel partie 3.)
+**Pourquoi** : `Optional.stream()` (« le contenu comme un mini-flux : 0 ou 1 élément ») est fait pour ça. C'est le même réflexe que 2.6 : dès qu'une étape produit des « boîtes », `flatMap` les ouvre. (Note : `getAgentAffecte()` est un **champ fictif ajouté pour cet exemple** — `Optional<String>` vide = « pas encore d'agent », rappel partie 3. Votre `Reclamation` des exercices ne l'a pas : c'est normal.)
 
 ### Piège 7 — Modifier la source pendant le parcours
 
