@@ -1,14 +1,14 @@
 # Pourquoi un framework ?
 
-> Leçon prévue — sous-chapitre 7.1 « Pourquoi un framework ? (avant même le 'comment') » de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
-> Statut : ⏳ à générer (voir `.clinerules/gererate-rule.md` pour la structure obligatoire).
+> Lecon 01 de la partie 7 — sous-chapitre 7.1 « Pourquoi un framework ? (avant meme le 'comment') » de la roadmap (`00-notes/roadmap-java-springboot-detaillee.md`).
+> Statut : ✅ terminee (exemple et correction verifies par execution, JDK 21).
 
-## Fichiers attendus
+## Fichiers
 
-- `01-lecon.md` — la leçon complète (objectifs, explication, vocabulaire, exemples, bonnes pratiques 2025-2026, pièges, checklist)
-- `02-exercice.md` — l'exercice pratique (progressif, lié au fil rouge SignalCUA)
-- `03-correction.md` — la correction détaillée + checklist de validation + conseils
+- [01-lecon.md](./01-lecon.md) — le probleme (plomberie des `new`), bibliotheque vs framework, IoC en une phrase, exemple executable, pieges, checklist.
+- [02-exercice.md](./02-exercice.md) — recabler SignalCUA a la main (registre → service → guichet) et mesurer le cout.
+- [03-correction.md](./03-correction.md) — solution complete + preuve d'execution + erreurs frequentes + conseils.
 
 ## 🔗 Fil rouge
 
-Cette leçon contribue à l'Étape 7 du projet **SignalCUA** (SignalCUA devient une API) — voir `lecons/fil-rouge-signalcua.md`.
+Cette lecon ne change pas encore le code : elle change le regard sur le `Main` Maven (partie 6) qui cable a la main. Le projet `signalcua-spring-boot` nait en lecon 02 ; Spring fera les `new` des la lecon 03. Voir `lecons/fil-rouge-signalcua.md` (Etape 7).
