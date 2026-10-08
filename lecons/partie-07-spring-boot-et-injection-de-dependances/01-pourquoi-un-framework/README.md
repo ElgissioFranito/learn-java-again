@@ -11,4 +11,4 @@
 
 ## 🔗 Fil rouge
 
-Cette lecon ne change pas encore le code : elle change le regard sur le `Main` Maven (partie 6) qui cable a la main. Le projet `signalcua-spring-boot` nait en lecon 02 ; Spring fera les `new` des la lecon 03. Voir `lecons/fil-rouge-signalcua.md` (Etape 7).
+Cette lecon ne change pas encore le code : elle change le regard sur le `Main` Maven (partie 6) qui cable a la main. Le projet `signalcuaspringboot` nait en lecon 02 ; Spring fera les `new` des la lecon 03. Voir `lecons/fil-rouge-signalcua.md` (Etape 7).

@@ -279,7 +279,7 @@ Avant de passer a l'exercice, verifiez que vous savez faire **chacun** de ces po
 
 ## Fil rouge — ou en est SignalCUA ?
 
-SignalCUA ne change pas encore de code : il **change de regard**. Le `Main` Maven de la partie 6 cable a la main (`new RegistreReclamations()` puis `new ReclamationService(...)`). L'exercice rejoue ce cablage en reduit, pour sentir la douleur avant le remede. Des la lecon 02, ce meme projet naitra en version Spring Boot (`signalcua-spring-boot`), et des la lecon 03 Spring fera les `new` a votre place.
+SignalCUA ne change pas encore de code : il **change de regard**. Le `Main` Maven de la partie 6 cable a la main (`new RegistreReclamations()` puis `new ReclamationService(...)`). L'exercice rejoue ce cablage en reduit, pour sentir la douleur avant le remede. Des la lecon 02, ce meme projet naitra en version Spring Boot (`signalcuaspringboot`), et des la lecon 03 Spring fera les `new` a votre place.
 
 ---
 

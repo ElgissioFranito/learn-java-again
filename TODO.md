@@ -11,7 +11,7 @@
 - [ ] Chaque dossier = au moins 3 fichiers : `01-lecon.md`, `02-exercice.md`, `03-correction.md`.
 - [ ] Chaque correction **executee en dossier temporaire** et verifiee avant livraison.
 - [ ] Chemins **relatifs uniquement**. Nommage sans accents ni apostrophes.
-- [ ] Projet fil rouge : creer et faire evoluer `signalcua-spring-boot` (API REST de signalement citoyen : voirie, ordures, eclairage, corruption... geree par agents CUA) des la lecon 02.
+- [ ] Projet fil rouge : creer et faire evoluer `signalcuaspringboot` (API REST de signalement citoyen : voirie, ordures, eclairage, corruption... geree par agents CUA) des la lecon 02.
 
 ## Structure obligatoire de chaque `01-lecon.md`
 
@@ -52,7 +52,7 @@ Total estime : ~4300-4800 lignes Markdown + projet fil rouge.
 
 ## Fil rouge SignalCUA — evolution incrementale (jamais de big-bang)
 
-- Lecon 02 : projet signalcua-spring-boot genere, demarre, repond.
+- Lecon 02 : projet signalcuaspringboot genere, demarre, repond.
 - Lecons 03-04 : RegistreReclamations + ServiceDelais deviennent beans.
 - Lecon 05 : ReclamationController avec GET /reclamations, GET /reclamations/{id}.
 - Lecon 06 : POST /reclamations avec Valid.
@@ -76,14 +76,14 @@ Total estime : ~4300-4800 lignes Markdown + projet fil rouge.
 - [ ] 3 fichiers crees avec transitions et glossaire.
 - [ ] Code commente ligne par ligne, teste en dossier temporaire.
 - [ ] README.md du dossier mis a jour (liens vers les 3 fichiers).
-- [ ] Projet signalcua-spring-boot avance d'un pas (depuis lecon 02).
+- [ ] Projet signalcuaspringboot avance d'un pas (depuis lecon 02).
 - [ ] Validation de l'apprenant demandee avant lecon suivante.
 
 ## Suivi
 
 - [x] TODO.md cree.
 - [x] 01-pourquoi-un-framework (terminee, verifiee JDK 21).
-- [ ] 02-premier-projet-springboot.
+- [ ] 02-premier-projet-springboot (terminee, verifiee Boot 4.1.1 + JDK 21, projet signalcuaspringboot cree).
 - [ ] 03-ioc-et-di.
 - [ ] 04-stereotypes-spring.
 - [ ] 05-controleurs-rest.
